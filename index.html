@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#1f7a3b" />
+  <title>GOLF PENALTY CHIPS｜SETTLE UP</title>
+  <style>
+    :root{
+      --green:#1f7a3b;
+      --green2:#0f5a2a;
+      --lime:#dff7a8;
+      --cream:#fff8df;
+      --ink:#1f2a1f;
+      --muted:#667066;
+      --line:rgba(255,255,255,.28);
+      --card:rgba(255,255,255,.88);
+      --shadow:0 18px 50px rgba(0,0,0,.22);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Noto Sans JP",Arial,sans-serif;color:var(--ink)}
+    body{
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,.48), transparent 25%),
+        radial-gradient(circle at 80% 10%, rgba(223,247,168,.4), transparent 22%),
+        linear-gradient(155deg,#72c66f 0%,#2f9a55 36%,#116436 68%,#083d25 100%);
+      padding:18px 14px 28px;
+    }
+    .wrap{max-width:520px;margin:0 auto}
+    .hero{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:22px 18px 18px;
+      color:white;
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(rgba(0,0,0,.06),rgba(0,0,0,.22)),
+        repeating-linear-gradient(120deg, rgba(255,255,255,.08) 0 22px, rgba(255,255,255,.02) 22px 44px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;left:-20%;right:-20%;bottom:-62px;height:120px;
+      background:rgba(255,255,255,.16);
+      border-radius:50% 50% 0 0;
+      transform:rotate(-2deg);
+    }
+    .brand{position:relative;text-align:center}
+    .brand .kicker{font-size:12px;letter-spacing:.18em;font-weight:800;opacity:.9}
+    h1{margin:8px 0 4px;font-size:30px;line-height:1.02;letter-spacing:.04em}
+    .sub{margin:0;font-weight:800;color:#f3ffd0}
+    .oji{
+      width:86px;height:86px;margin:14px auto 0;border-radius:50%;
+      background:#fff;display:grid;place-items:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      color:#111;font-size:46px;position:relative;
+    }
+    .oji:after{
+      content:"オジサンA";
+      position:absolute;bottom:-8px;right:-16px;
+      background:#111;color:#fff;font-size:10px;padding:4px 8px;border-radius:999px;font-weight:800;
+    }
+    .panel{
+      margin-top:14px;background:var(--card);backdrop-filter:blur(10px);
+      border-radius:var(--radius);padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.15);
+      border:1px solid rgba(255,255,255,.6);
+    }
+    .row{display:flex;gap:10px;align-items:center}
+    label{font-size:13px;font-weight:900;color:#314031}
+    select,input{
+      width:100%;border:1px solid rgba(31,42,31,.18);border-radius:16px;
+      padding:13px 12px;font-size:17px;background:#fff;color:var(--ink);outline:none;
+    }
+    input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(31,122,59,.15)}
+    .field{flex:1}
+    .players{display:grid;gap:10px;margin-top:12px}
+    .player{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:10px;align-items:end;
+      background:rgba(31,122,59,.07);border-radius:18px;padding:10px;
+    }
+    .hint{font-size:12px;color:var(--muted);line-height:1.55;margin:10px 2px 0}
+    .ball{
+      width:100%;margin-top:16px;border:0;border-radius:999px;padding:18px 16px;
+      background:
+        radial-gradient(circle at 22% 28%, rgba(0,0,0,.09) 0 2px, transparent 3px),
+        radial-gradient(circle at 42% 48%, rgba(0,0,0,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 66% 30%, rgba(0,0,0,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 60%, rgba(0,0,0,.08) 0 2px, transparent 3px),
+        linear-gradient(#fff,#e9e9df);
+      color:#12351f;font-size:20px;font-weight:1000;letter-spacing:.05em;
+      box-shadow:0 10px 0 #d2d2c5,0 18px 30px rgba(0,0,0,.22);
+      cursor:pointer;
+    }
+    .ball:active{transform:translateY(5px);box-shadow:0 5px 0 #d2d2c5,0 10px 20px rgba(0,0,0,.2)}
+    .result{display:none;margin-top:14px}
+    .result.show{display:block}
+    .result h2{font-size:18px;margin:0 0 10px}
+    .pay{background:#fff;border-radius:16px;padding:13px 14px;margin:8px 0;font-size:17px;font-weight:900;display:flex;justify-content:space-between;gap:8px}
+    .pay small{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-top:2px}
+    .winner{background:#12351f;color:white;border-radius:18px;padding:13px 14px;margin-bottom:10px;font-weight:900}
+    .empty{background:#fff;border-radius:16px;padding:14px;color:var(--muted);font-weight:800;text-align:center}
+    .footer{text-align:center;color:rgba(255,255,255,.78);font-size:11px;margin:18px 0 0}
+    .mini{display:flex;gap:8px;margin-top:10px}
+    .mini button{
+      flex:1;border:0;background:rgba(255,255,255,.78);border-radius:14px;padding:11px;font-weight:900;color:#24442a
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="brand">
+        <div class="kicker">GOLF PENALTY CHIPS</div>
+        <h1>SETTLE UP</h1>
+        <p class="sub">チップ枚数を入れて一発精算</p>
+        <div class="oji" aria-label="オジサンA">⛳</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="row">
+        <div class="field">
+          <label for="people">人数</label>
+          <select id="people">
+            <option value="2">2人</option>
+            <option value="3">3人</option>
+            <option value="4" selected>4人</option>
+            <option value="5">5人</option>
+            <option value="6">6人</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="yen">1チップ金額</label>
+          <input id="yen" inputmode="numeric" type="number" min="1" step="100" value="500">
+        </div>
+      </div>
+
+      <div id="players" class="players"></div>
+
+      <p class="hint">
+        ルール：チップ枚数が少ない人が勝ち。全員の合計差額を、少ない人へ支払う形で自動計算します。
+      </p>
+
+      <button class="ball" id="calc">精算する</button>
+
+      <div class="mini">
+        <button id="sample" type="button">サンプル</button>
+        <button id="reset" type="button">リセット</button>
+      </div>
+
+      <div id="result" class="result"></div>
+    </section>
+
+    <div class="footer">Laugh & Play｜GOLF PENALTY CHIPS</div>
+  </main>
+
+<script>
+(function(){
+  const peopleEl = document.getElementById('people');
+  const yenEl = document.getElementById('yen');
+  const playersEl = document.getElementById('players');
+  const resultEl = document.getElementById('result');
+  const names = ['A','B','C','D','E','F'];
+
+  function save(){
+    const data = {
+      people: peopleEl.value,
+      yen: yenEl.value,
+      players: [...document.querySelectorAll('.chip')].map(i=>i.value)
+    };
+    localStorage.setItem('gpc_settle', JSON.stringify(data));
+  }
+
+  function load(){
+    try{return JSON.parse(localStorage.getItem('gpc_settle')) || null}
+    catch(e){return null}
+  }
+
+  function renderPlayers(){
+    const n = Number(peopleEl.value);
+    const old = [...document.querySelectorAll('.chip')].map(i=>i.value);
+    playersEl.innerHTML = '';
+    for(let i=0;i<n;i++){
+      const div = document.createElement('div');
+      div.className = 'player';
+      div.innerHTML = `
+        <div>
+          <label>プレイヤー</label>
+          <input class="name" value="${names[i]}" maxlength="10" aria-label="プレイヤー名${i+1}">
+        </div>
+        <div>
+          <label>チップ枚数</label>
+          <input class="chip" inputmode="numeric" type="number" min="0" step="1" value="${old[i] || 0}" aria-label="チップ枚数${i+1}">
+        </div>`;
+      playersEl.appendChild(div);
+    }
+    [...document.querySelectorAll('input,select')].forEach(el=>el.addEventListener('input', save));
+  }
+
+  function calculate(){
+    const yen = Math.max(1, Number(yenEl.value || 0));
+    const list = [...document.querySelectorAll('.player')].map((row,idx)=>({
+      name: row.querySelector('.name').value.trim() || names[idx],
+      chips: Math.max(0, Number(row.querySelector('.chip').value || 0))
+    }));
+
+    const min = Math.min(...list.map(p=>p.chips));
+    const winners = list.filter(p=>p.chips === min);
+    const losers = list.filter(p=>p.chips > min);
+
+    resultEl.className = 'result show';
+
+    if(losers.length === 0){
+      resultEl.innerHTML = `<h2>精算結果</h2><div class="empty">全員同じ枚数です。精算なし！</div>`;
+      save();
+      return;
+    }
+
+    let pays = [];
+    if(winners.length === 1){
+      const w = winners[0];
+      losers.forEach(l=>{
+        const amount = (l.chips - min) * yen;
+        if(amount > 0) pays.push({from:l.name,to:w.name,amount,chips:l.chips-min});
+      });
+    }else{
+      losers.forEach(l=>{
+        const total = (l.chips - min) * yen;
+        const each = Math.round(total / winners.length);
+        winners.forEach(w=>{
+          if(each > 0) pays.push({from:l.name,to:w.name,amount:each,chips:l.chips-min});
+        });
+      });
+    }
+
+    const winnerText = winners.map(w=>w.name).join('・');
+    resultEl.innerHTML = `
+      <h2>精算結果</h2>
+      <div class="winner">勝ち：${winnerText}（${min}枚）</div>
+      ${pays.map(p=>`
+        <div class="pay">
+          <div>${p.from} → ${p.to}<small>差分 ${p.chips} 枚</small></div>
+          <div>${p.amount.toLocaleString()}円</div>
+        </div>`).join('')}
+    `;
+    save();
+  }
+
+  peopleEl.addEventListener('change', ()=>{renderPlayers(); save();});
+  document.getElementById('calc').addEventListener('click', calculate);
+  document.getElementById('reset').addEventListener('click', ()=>{
+    localStorage.removeItem('gpc_settle');
+    peopleEl.value = 4; yenEl.value = 500; renderPlayers(); resultEl.className='result'; resultEl.innerHTML='';
+  });
+  document.getElementById('sample').addEventListener('click', ()=>{
+    peopleEl.value = 4; renderPlayers(); yenEl.value = 500;
+    [...document.querySelectorAll('.chip')].forEach((el,i)=>el.value=[0,2,1,4][i] || 0);
+    calculate();
+  });
+
+  const saved = load();
+  if(saved){
+    peopleEl.value = saved.people || 4;
+    yenEl.value = saved.yen || 500;
+    renderPlayers();
+    [...document.querySelectorAll('.chip')].forEach((el,i)=>el.value=saved.players?.[i] ?? 0);
+  }else{
+    renderPlayers();
+  }
+})();
+</script>
+</body>
+</html>
