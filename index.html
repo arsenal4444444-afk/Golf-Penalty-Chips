@@ -23,7 +23,7 @@
     .players{display:grid;gap:10px;margin-top:12px}
     .player{display:grid;grid-template-columns:1.1fr .9fr;gap:10px;align-items:end;background:rgba(31,122,59,.07);border-radius:18px;padding:10px}
     .hint{font-size:12px;color:#667066;line-height:1.55;margin:10px 2px 0}
-    .ball{width:100%;margin-top:16px;border:0;border-radius:999px;padding:18px 16px;background:radial-gradient(circle at 22% 28%,rgba(0,0,0,.09) 0 2px,transparent 3px),radial-gradient(circle at 42% 48%,rgba(0,0,0,.08) 0 2px,transparent 3px),radial-gradient(circle at 66% 30%,rgba(0,0,0,.08) 0 2px,transparent 3px),linear-gradient(#fff,#e9e9df);color:#12351f;font-size:20px;font-weight:1000;letter-spacing:.05em;box-shadow:0 10px 0 #d2d2c5,0 18px 30px rgba(0,0,0,.22);cursor:pointer}
+    .ball{width:100%;margin-top:16px;border:0;border-radius:999px;padding:18px 16px;background:radial-gradient(circle at 22% 28%,rgba(0,0,0,.09) 0 2px,transparent 3px),radial-gradient(circle at 42% 48%,rgba(0,0,0,.08) 0 2px,transparent 3px),radial-gradient(circle at 66% 30%,rgba(0,0,0,.08) 0 2px,transparent 3px),linear-gradient(#fff,#e9e9df);color:#12351f;font-size:20px;font-weight:1000;letter-spacing:.05em;box-shadow:0 10px 0 #d2d2c5,0 18px 30px rgba(0,0,0,.22);cursor:pter}
     .ball:active{transform:translateY(5px);box-shadow:0 5px 0 #d2d2c5,0 10px 20px rgba(0,0,0,.2)}
     .mini{display:flex;gap:8px;margin-top:10px}
     .mini button{flex:1;border:0;background:rgba(255,255,255,.8);border-radius:14px;padding:11px;font-weight:900;color:#24442a}
@@ -49,7 +49,7 @@
     <section class="panel">
       <div class="row">
         <div class="field"><label for="people">人数</label><select id="people"><option value="2">2人</option><option value="3">3人</option><option value="4" selected>4人</option><option value="5">5人</option><option value="6">6人</option></select></div>
-        <div class="field"><label for="yen">1チップ金額</label><input id="yen" inputmode="numeric" type="number" min="1" step="100" value="500"></div>
+        <div class="field"><label for="yen">1チップポイント</label><input id="yen" inputmode="numeric" type="number" min="1" step="100" value="500"></div>
       </div>
       <div id="players" class="players"></div>
       <p class="hint">ルール：全員総当たり精算。チップが多い人が、少ない人へ差額分を支払います。</p>
@@ -93,7 +93,7 @@
     const payments = [];
 
     // 正式ルール：全員総当たり
-    // チップが多い人 → 少ない人へ「差額 × point」を支払う
+    // チップが多い人 → 少ない人へ「差額 × pt」を支払う
     for(let i=0; i<players.length; i++){
       for(let j=i+1; j<players.length; j++){
         const a = players[i];
@@ -124,11 +124,11 @@
 
     resultEl.innerHTML = `
       <h2>精算結果</h2>
-      <div class="summary">${chipText}<br>1チップ：${yen.toLocaleString()}point</div>
+      <div class="summary">${chipText}<br>1チップ：${yen.toLocaleString()}pt</div>
       ${payments.map(p => `
         <div class="pay">
           <div>${p.from} → ${p.to}<small>${p.diff}枚差</small></div>
-          <div>${p.amount.toLocaleString()}point</div>
+          <div>${p.amount.toLocaleString()}pt</div>
         </div>
       `).join('')}
     `;
