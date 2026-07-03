@@ -93,7 +93,7 @@
     const payments = [];
 
     // 正式ルール：全員総当たり
-    // チップが多い人 → 少ない人へ「差額 × 金額」を支払う
+    // チップが多い人 → 少ない人へ「差額 × point」を支払う
     for(let i=0; i<players.length; i++){
       for(let j=i+1; j<players.length; j++){
         const a = players[i];
@@ -124,11 +124,11 @@
 
     resultEl.innerHTML = `
       <h2>精算結果</h2>
-      <div class="summary">${chipText}<br>1チップ：${yen.toLocaleString()}円</div>
+      <div class="summary">${chipText}<br>1チップ：${yen.toLocaleString()}point</div>
       ${payments.map(p => `
         <div class="pay">
           <div>${p.from} → ${p.to}<small>${p.diff}枚差</small></div>
-          <div>${p.amount.toLocaleString()}円</div>
+          <div>${p.amount.toLocaleString()}point</div>
         </div>
       `).join('')}
     `;
