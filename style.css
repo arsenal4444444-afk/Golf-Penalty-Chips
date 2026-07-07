@@ -86,6 +86,16 @@ header small,
 .app-header small {
   color: #2b7a3f;
   font-weight: bold;
+}header small,
+.hero small,
+.title small,
+.app-header small,
+header p,
+.hero p,
+.title p,
+.app-header p {
+  color: #064f24;
+  font-weight: bold;
 }
 
 button:hover {
