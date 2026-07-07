@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background: #eaf5ec;
+  background: #d8efd9;
   color: #183522;
   margin: 0;
   padding: 20px;
@@ -9,7 +9,7 @@ body {
 main {
   max-width: 720px;
   margin: 0 auto;
-  background: #ffffff;
+  background: #f7fff7;
   border: 2px solid #2f8f46;
   border-radius: 12px;
   padding: 24px;
@@ -17,30 +17,35 @@ main {
 
 h1 {
   text-align: center;
-  color: #0f5f2a;
+  color: #0b5a27;
 }
 
 button {
-  background: #1f8f4d;
+  background: #064f24;
   color: white;
   border: none;
   border-radius: 8px;
   padding: 12px 18px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
 }
 
 button:hover {
-  background: #146b36;
+  background: #033817;
 }
 
-input {
+input,
+select,
+textarea {
+  background: #f0fbf1;
+  color: #183522;
   padding: 10px;
-  border: 1px solid #7bbf8a;
+  border: 1px solid #75b985;
   border-radius: 6px;
 }
 
 section,
 div {
-  border-color: #b7dfbf;
+  border-color: #a8d8b0;
 }
