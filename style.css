@@ -160,8 +160,8 @@ header > *,
 }
 
 .oji {
-  width: 86px;
-  height: 86px;
+  width: 104px;
+  height: 104px;
   object-fit: cover;
   border-radius: 50%;
   padding: 6px;
