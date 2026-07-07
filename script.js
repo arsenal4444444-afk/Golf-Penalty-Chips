@@ -88,16 +88,18 @@
     resultEl.innerHTML = '';
   });
 
-  document.getElementById('calc').addEventListener('click', calculate);
+document.getElementById('calc').addEventListener('click', calculate);
 
-  document.getElementById('reset').addEventListener('click', () => {
-    peopleEl.value = 4;
-    yenEl.value = 500;
-    renderPlayers();
-    resultEl.className = 'result';
-    resultEl.innerHTML = '';
+document.getElementById('reset').addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(input => {
+    input.value = 0;
   });
 
+  yenEl.value = 500;
+  renderPlayers();
+  resultEl.className = 'result';
+  resultEl.innerHTML = '';
+});
   document.getElementById('sample').addEventListener('click', () => {
     peopleEl.value = 4;
     renderPlayers();
