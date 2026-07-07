@@ -49,3 +49,19 @@ section,
 div {
   border-color: #a8d8b0;
 }
+header,
+.hero,
+.title,
+.app-header {
+  background: #dff3e3;
+}
+
+button {
+  background: #dff3e3;
+  color: #064f24;
+  border: 1px solid #75b985;
+}
+
+button:hover {
+  background: #c9ebd0;
+}
