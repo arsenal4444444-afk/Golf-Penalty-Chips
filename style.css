@@ -185,3 +185,27 @@ header > *,
 .buy-button:hover {
   background: #990000;
 }
+.qr-box {
+  margin-top: 16px;
+  padding: 16px;
+  text-align: center;
+  background: #f7fff7;
+  border: 1px solid #b7dfbf;
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(20, 80, 40, 0.12);
+}
+
+.qr-box p {
+  margin: 0 0 10px;
+  color: #064f24;
+  font-weight: bold;
+}
+
+.qr-box img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+}
