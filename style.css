@@ -61,6 +61,32 @@ button {
   color: #064f24;
   border: 1px solid #75b985;
 }
+header,
+.hero,
+.title,
+.app-header {
+  color: #064f24;
+}
+
+header p,
+.hero p,
+.title p,
+.app-header p,
+header .subtitle,
+.hero .subtitle,
+.title .subtitle,
+.app-header .subtitle {
+  color: #1b6b35;
+  font-weight: bold;
+}
+
+header small,
+.hero small,
+.title small,
+.app-header small {
+  color: #2b7a3f;
+  font-weight: bold;
+}
 
 button:hover {
   background: #c9ebd0;
