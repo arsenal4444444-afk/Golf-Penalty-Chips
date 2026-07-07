@@ -97,7 +97,32 @@ header p,
   color: #064f24;
   font-weight: bold;
 }
+.oji {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: white;
+  padding: 6px;
+  box-shadow: 0 10px 24px rgba(20, 80, 40, 0.25);
+}
+button:first-of-type {
+  background: #075c2a;
+  color: white;
+  border: none;
+  box-shadow: 0 8px 18px rgba(7, 92, 42, 0.25);
+}
+
+button:first-of-type:hover {
+  background: #03451e;
+}
+
 
 button:hover {
   background: #c9ebd0;
+}
+.hero,
+header,
+.app-header {
+  background: linear-gradient(180deg, #d9f4df 0%, #c9ebd0 100%);
 }
