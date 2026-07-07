@@ -100,15 +100,6 @@ document.getElementById('reset').addEventListener('click', () => {
   resultEl.className = 'result';
   resultEl.innerHTML = '';
 });
-  document.getElementById('sample').addEventListener('click', () => {
-    peopleEl.value = 4;
-    renderPlayers();
-    yenEl.value = 500;
-    [0,1,3,5].forEach((v,i) => {
-      document.querySelectorAll('.chip')[i].value = v;
-    });
-    calculate();
-  });
-
+  
   renderPlayers();
 })();
