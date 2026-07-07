@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5f7f5;
-  color: #222;
+  background: #eaf5ec;
+  color: #183522;
   margin: 0;
   padding: 20px;
 }
@@ -9,11 +9,15 @@ body {
 main {
   max-width: 720px;
   margin: 0 auto;
+  background: #ffffff;
+  border: 2px solid #2f8f46;
+  border-radius: 12px;
+  padding: 24px;
 }
 
 h1 {
   text-align: center;
-  color: #1f6b3a;
+  color: #0f5f2a;
 }
 
 button {
@@ -27,11 +31,16 @@ button {
 }
 
 button:hover {
-  background: #166f3a;
+  background: #146b36;
 }
 
 input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #7bbf8a;
   border-radius: 6px;
+}
+
+section,
+div {
+  border-color: #b7dfbf;
 }
