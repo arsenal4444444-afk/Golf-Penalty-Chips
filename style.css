@@ -154,6 +154,11 @@ header::after,
 
 .hero > *,
 header > *,
+.app-header > * {
+  position: relative;
+  z-index: 1;
+}
+
 .oji {
   width: 86px;
   height: 86px;
@@ -163,8 +168,4 @@ header > *,
   background: #e6f7e9;
   border: 3px solid #b7dfbf;
   box-shadow: 0 12px 26px rgba(20, 80, 40, 0.25);
-}
-.app-header > * {
-  position: relative;
-  z-index: 1;
 }
