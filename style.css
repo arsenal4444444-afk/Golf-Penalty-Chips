@@ -126,3 +126,35 @@ header,
 .app-header {
   background: linear-gradient(180deg, #d9f4df 0%, #c9ebd0 100%);
 }
+.hero,
+header,
+.app-header {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.9), transparent 28%),
+    radial-gradient(circle at 80% 15%, rgba(255,255,255,0.55), transparent 24%),
+    linear-gradient(160deg, #dff6e4 0%, #bfe8c9 55%, #9fd9b0 100%);
+  border: 1px solid rgba(72, 150, 90, 0.25);
+  box-shadow: 0 18px 36px rgba(25, 90, 45, 0.18);
+}
+
+.hero::after,
+header::after,
+.app-header::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -35px;
+  height: 90px;
+  background: rgba(255,255,255,0.35);
+  border-radius: 50% 50% 0 0;
+}
+
+.hero > *,
+header > *,
+.app-header > * {
+  position: relative;
+  z-index: 1;
+}
