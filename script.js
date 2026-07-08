@@ -75,9 +75,8 @@
       <div class="summary">${chipText}<br>1チップ：${point.toLocaleString()}ポイント</div>
       ${payments.map(p => `
         <div class="pay">
-          <div>${p.from} → ${p.to}<small>${p.diff}枚差</small></div>
-          <div>${p.amount.toLocaleString()}ポイント</div>
-        </div>
+          <div class="pay-name">${p.from} → ${p.to}<small>${p.diff}枚差</small></div>
+<div class="pay-amount">${p.amount.toLocaleString()}p</div>        </div>
       `).join('')}
     `;
   }
