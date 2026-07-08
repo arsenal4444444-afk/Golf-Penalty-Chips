@@ -185,3 +185,28 @@ header > *,
 .buy-button:hover {
   background: #990000;
 }
+.pay {
+  align-items: center;
+  gap: 10px;
+}
+
+.pay-name {
+  flex: 1;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.pay-name small {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #667066;
+}
+
+.pay-amount {
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: right;
+}
