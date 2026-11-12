@@ -101,10 +101,10 @@ document.getElementById('reset').addEventListener('click', () => {
   resultEl.className = 'result';
   resultEl.innerHTML = '';
 });
-    playersEl.addEventListener('focusin', (e) => {
-    if (e.target.matches('.name, .chip, .bonus')) {
-      e.target.select();
-    }
-  });
+playersEl.addEventListener('pointerup', (e) => {
+  if (e.target.matches('.name, .chip, .bonus')) {
+    e.target.select();
+  }
+});
   renderPlayers();
 })();
