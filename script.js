@@ -33,13 +33,12 @@
   }
 
   function calculate(){
-    const point = Math.max(1, Number(yenEl.value || 0));
-
     const players = [...document.querySelectorAll('.player')].map((row, idx) => ({
-      name: row.querySelector('.name').value.trim() || defaultNames[idx],
-      chips: Math.max(0, Number(row.querySelector('.chip').value || 0))
-    }));
-
+  name: row.querySelector('.name').value.trim() || defaultNames[idx],
+  chips:
+    Math.max(0, Number(row.querySelector('.chip').value || 0))
+    - Math.max(0, Number(row.querySelector('.bonus').value || 0))
+}));
     const payments = [];
 
     // 正式ルール：全員総当たり
