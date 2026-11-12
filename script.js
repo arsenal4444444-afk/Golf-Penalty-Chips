@@ -95,8 +95,10 @@
         `${p.from} → ${p.to}：${p.amount.toLocaleString()}p（${p.diff}枚差）`
       ),
       '',
-      'GOLF PENALTY CHIPS'
-    ].join('\n');
+'GOLF PENALTY CHIPS',
+'',
+'ゴルチップはこちらで購入できます！',
+'https://item.rakuten.co.jp/stones2004/golfpenaltychips/'    ].join('\n');
 
     // LINE共有ボタンを表示
     const lineButton = document.getElementById('lineShare');
