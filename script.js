@@ -82,6 +82,33 @@
 <div class="pay-amount">${p.amount.toLocaleString()}p</div>        </div>
       `).join('')}
     `;
+
+    // LINE共有用の文章を作成
+    const shareText = [
+      '⛳ ゴルチップ精算結果',
+      '',
+      ...players.map(p => `${p.name}：${p.chips}枚`),
+      '',
+      `1チップ：${point.toLocaleString()}ポイント`,
+      '',
+      ...payments.map(p =>
+        `${p.from} → ${p.to}：${p.amount.toLocaleString()}p（${p.diff}枚差）`
+      ),
+      '',
+      'GOLF PENALTY CHIPS'
+    ].join('\n');
+
+    // LINE共有ボタンを表示
+    const lineButton = document.getElementById('lineShare');
+    lineButton.style.display = 'block';
+
+    // LINE共有画面を開く
+    lineButton.onclick = () => {
+      window.open(
+        'https://line.me/R/msg/text/?' + encodeURIComponent(shareText),
+        '_blank'
+      );
+    };
   }
 
   peopleEl.addEventListener('change', () => {
