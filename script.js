@@ -33,6 +33,7 @@
   }
 
   function calculate(){
+    const point = Math.max(1, Number(yenEl.value || 500));
     const players = [...document.querySelectorAll('.player')].map((row, idx) => ({
   name: row.querySelector('.name').value.trim() || defaultNames[idx],
   chips:
