@@ -22,7 +22,7 @@
         </div>
         <div>
   <label>ペナルティ枚数</label>
-  <input class="chip" inputmode="numeric" type="number" min="0" step="1" value="${oldChips[i] || 0}">
+  <input class="chip" inputmode="numeric" type="number" min="0" step="1" value="">
 </div>
 <div>
   <label>プラスコイン枚数</label>
