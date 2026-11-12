@@ -92,7 +92,7 @@
       `1チップ：${point.toLocaleString()}ポイント`,
       '',
       ...payments.map(p =>
-        `${p.from} → ${p.to}：${p.amount.toLocaleString()}p（${p.diff}枚差）`
+        `${p.from} → ${p.to}\n${p.amount.toLocaleString()}p（${p.diff}枚差）`
       ),
       '',
 'GOLF PENALTY CHIPS',
