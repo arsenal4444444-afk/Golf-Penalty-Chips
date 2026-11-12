@@ -21,10 +21,13 @@
           <input class="name" value="${oldNames[i] || defaultNames[i]}" maxlength="10">
         </div>
         <div>
-          <label>チップ枚数</label>
-          <input class="chip" inputmode="numeric" type="number" min="0" step="1" value="${oldChips[i] || 0}">
-        </div>
-      `;
+  <label>ペナルティ枚数</label>
+  <input class="chip" inputmode="numeric" type="number" min="0" step="1" value="${oldChips[i] || 0}">
+</div>
+<div>
+  <label>プラスコイン枚数</label>
+  <input class="bonus" inputmode="numeric" type="number" min="0" step="1" value="0">
+</div>      `;
       playersEl.appendChild(div);
     }
   }
