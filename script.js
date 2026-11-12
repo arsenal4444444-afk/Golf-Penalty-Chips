@@ -17,8 +17,8 @@
       div.className = 'player';
       div.innerHTML = `
         <div>
-          <label>プレイヤー</label>
-          <input class="name" value="${oldNames[i] || defaultNames[i]}" maxlength="10">
+<label>プレイヤー ${defaultNames[i]}</label>
+<input class="name" value="" placeholder="名前（省略可）" maxlength="10">
         </div>
         <div>
   <label>ペナルティ枚数</label>
@@ -26,7 +26,7 @@
 </div>
 <div>
   <label>プラスコイン枚数</label>
-  <input class="bonus" inputmode="numeric" type="number" min="0" step="1" value="0">
+  <input class="bonus" inputmode="numeric" type="number" min="0" step="1" value="">
 </div>      `;
       playersEl.appendChild(div);
     }
