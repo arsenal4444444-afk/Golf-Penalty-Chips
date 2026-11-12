@@ -102,7 +102,7 @@ document.getElementById('reset').addEventListener('click', () => {
   resultEl.className = 'result';
   resultEl.innerHTML = '';
 });
-playersEl.addEventListener('pointerup', (e) => {
+playersEl.addEventListener('focusin', (e) => {
   if (e.target.matches('.name, .chip, .bonus')) {
     e.target.select();
   }
